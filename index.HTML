@@ -3,131 +3,243 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>我的專業簡介 - 受到 LinkedIn 的啟發</title>
+<title>黃氏腆 | 個人專業簡介</title>
 <style>
+  /* 全域設定 */
   body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
+    font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
+    margin: 0;
+    padding: 20px 0;
     background-color: #f3f2ef;
+    line-height: 1.6;
+    color: #333;
   }
+
   .container {
-    max-width: 800px;
+    max-width: 850px;
     margin: 0 auto;
     background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* 確保橫幅圓角 */
   }
+
+  /* LinkedIn 風格頂部橫幅 (Đã cập nhật thêm thuộc tính ảnh) */
+  .top-banner {
+    height: 150px;
+    /* Giữ gradient làm màu nền dự phòng */
+    background: linear-gradient(135deg, #0073b1 0%, #00a0dc 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+  }
+
+  /* 頭部資訊 */
   .header {
     display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+    padding: 0 40px 30px 40px;
+    margin-top: -60px; /* 讓頭像往上浮動 */
+    align-items: flex-end;
+    border-bottom: 1px solid #f0f0f0;
   }
+
   .header img {
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
-    margin-right: 20px;
+    border: 5px solid #fff;
+    object-fit: cover;
+    background-color: #eee;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
+
+  .header-text {
+    margin-left: 20px;
+    padding-bottom: 10px;
+  }
+
   .header h1 {
-    font-size: 28px;
-    margin-top: 0;
+    font-size: 32px;
+    margin: 0;
+    color: #000;
   }
-  .header p {
-    font-size: 16px;
+
+  .header .headline {
+    font-size: 18px;
     color: #666;
+    margin: 5px 0;
+    font-weight: 400;
   }
+
+  /* 聯絡資訊連結 */
   .contact-info {
-    margin-bottom: 20px;
+    padding: 20px 40px;
+    display: flex;
+    gap: 20px;
+    background-color: #fafafa;
   }
+
   .contact-info a {
     text-decoration: none;
     color: #0073b1;
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s;
   }
-  .about-me {
-    margin-bottom: 30px;
+
+  .contact-info a:hover {
+    color: #004182;
+    text-decoration: underline;
   }
-  .about-me h2 {
-    font-size: 20px;
-    margin-top: 0;
+
+  /* 內容區塊 */
+  .main-content {
+    padding: 30px 40px;
   }
-  .experience {
-    margin-bottom: 30px;
+
+  .section {
+    margin-bottom: 40px;
   }
-  .experience h2 {
-    font-size: 20px;
-    margin-top: 0;
-  }
-  .experience-item {
+
+  .section h2 {
+    font-size: 22px;
+    color: #000;
+    border-left: 5px solid #0073b1;
+    padding-left: 15px;
     margin-bottom: 20px;
   }
-  .experience-item h3 {
+
+  .section p {
+    font-size: 16px;
+    color: #444;
+    text-align: justify;
+  }
+
+  /* 學歷與經歷項目 */
+  .item {
+    margin-bottom: 25px;
+    padding-left: 5px;
+  }
+
+  .item h3 {
     font-size: 18px;
-    margin-top: 0;
+    margin: 0;
+    color: #333;
   }
-  .experience-item p {
+
+  .item .sub-title {
     font-size: 14px;
-    color: #666;
+    color: #0073b1;
+    font-weight: 600;
+    margin: 3px 0;
   }
-  .skills {
-    margin-bottom: 30px;
+
+  .item .date {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 8px;
   }
-  .skills h2 {
-    font-size: 20px;
-    margin-top: 0;
-  }
-  .skills ul {
+
+  /* 技能標籤樣式 */
+  .skills-list {
     list-style: none;
     padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
   }
-  .skills li {
+
+  .skills-list li {
     font-size: 14px;
-    background-color: #eee;
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin-right: 10px;
-    margin-bottom: 10px;
+    background-color: #f3f2ef;
+    color: #555;
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-weight: 500;
+    border: 1px solid #ddd;
+    transition: all 0.3s;
+  }
+
+  .skills-list li:hover {
+    background-color: #0073b1;
+    color: #fff;
+    border-color: #0073b1;
+  }
+
+  /* 手機版適應 */
+  @media (max-width: 600px) {
+    .header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .header-text { margin-left: 0; margin-top: 15px; }
+    .contact-info { flex-wrap: wrap; justify-content: center; }
   }
 </style>
 </head>
 <body>
+
   <div class="container">
+    <div class="top-banner" style="background-image=<"D:\thia\images.jpg"></div>
+
     <div class="header">
-      <img src="mujic.jpg" alt="您的姓名">
-      <div>
-        <h1>Hwag thia</h1>
-        <p>您的職稱/專業領域</p>
+      <img src="D:\thia\536729fd-e054-46e4-817f-9e3667311692.jpeg" alt="黃氏腆">
+      <div class="header-text">
+        <h1>黃氏腆</h1>
+        <p class="headline">數位多媒體系| AI 視覺設計師 | 國際廣告創意</p>
       </div>
     </div>
 
     <div class="contact-info">
-      <a href="mailto:你的電子郵件">電子郵件</a> |
-      <a href="你的 LinkedIn 網址">LinkedIn</a> |
-      <a href="你的個人網站/作品集">個人網站</a>
+      <a href="mailto:thiahoang32@gmail.com">📧 thiahoang32@gmail.com</a>
+      <a href="#">🔗 LinkedIn 檔案</a>
+      <a href="#">🎨 線上作品集</a>
     </div>
 
-    <div class="about-me">
-      <h2>關於我</h2>
-      <p>撰寫一段簡短的段落，介紹您的專業背景、技能、熱情和職業目標。</p>
-    </div>
-
-    <div class="experience">
-      <h2>工作經驗</h2>
-      <div class="experience-item">
-        <h3>職稱, 公司名稱</h3>
-        <p>起訖日期</p>
-        <p>簡述您在該職位的主要職責、成就和所使用的技能。</p>
-      </div>
+    <div class="main-content">
+      
+      <div class="section">
+        <h2>關於我 / About Me</h2>
+        <p>
+          您好，我是黃氏腆。目前就讀黎明技術學院數位多媒體系二年級，致力於探索數位媒體與視覺敘事的結合。我熱衷於將傳播理論轉化為具備美感的影像作品，
+          並持續透過網頁技術與多媒體專案精進自己的專業實力。我對新技術充滿好奇心，享受從視覺構思到代碼實現的過程，
+          目標是成為一名能結合內容深度與科技美感的傳播專業人士。
+        </p>
       </div>
 
-    <div class="skills">
-      <h2>技能</h2>
-      <ul>
-        <li>技能 1</li>
-        <li>技能 2</li>
-        <li>技能 3</li>
+      <div class="section">
+        <h2>教育背景 / Education</h2>
+        <div class="item">
+          <h3>黎明技術學院-數位多媒體系</h3>
+          <p class="sub-title">學士學位</p>
+          <p class="date">2024 年 9 月 – 2028 年 6 月 (預計畢業)</p>
+          <p>主修課程：數位影像製作、傳播理論、網頁前端設計、媒體行銷研究。</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>專業技能 / Skills</h2>
+        <ul class="skills-list">
+          <li>數位媒體創作</li>
+          <li>視覺敘事設計</li>
+          <li>HTML5 / CSS3</li>
+          <li>Adobe Premiere Pro</li>
+          <li>Adobe Photoshop</li>
+          <li>社群媒體經營</li>
+          <li>品牌行銷企劃</li>
         </ul>
+      </div>
+
     </div>
   </div>
+
+  <div style="text-align: center; margin-top: 20px; color: #888; font-size: 12px;">
+    © 2026 黃氏腆 個人專業網頁 - 致力於傳播與科技的結合
+  </div>
+
 </body>
 </html>
